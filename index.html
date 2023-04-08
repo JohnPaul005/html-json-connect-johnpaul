@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <title>Computer Shop</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />        
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    </head>
+    <body class="bs-light" id="page-top">
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <div class="container px-5">
+                <button class="navbar-toggler" type="button" href="#page-top" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="masthead container px-5 px-lg-5">
+            <!-- Heading Row-->
+            <div class="masthead-content row gx-4 gx-lg-7 align-items-center my-5 ">
+                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="comset/1.jpg" alt="..." /></div>
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">We Build What You Want</h1>
+                    <p><h3> Espinosa Gaming Set</h3></p>
+                    <!-- <a class="btn btn-primary" href="#!">Call to Action!</a> -->
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+                </div>
+            </div>
+        </div>
+         <!-- Call to Action-->
+            <!-- <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0"><h3>CHOOSE YOUR RIGHT COMPUTER/LAPTOP SE FOR YOUR EVERDY USE!</h3></p></div>
+            </div> -->
+        <section class="signup-section mx-5 masthead" id="scroll">
+            <link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet">
+
+            <div id="myCarousel" class="carousel slide carousel-fade " data-ride="carousel">
+                <div class="carousel-inner py-5 ">
+                    <div id="demo">
+                    </div>
+                    <script>
+                        var txt = "";
+                        const xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onload = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                let computers = JSON.parse(this.responseText);
+                                console.log(computers);
+                                let txt = "";
+                                let specs = "";
+                                
+                                for(i = 0; i < computers.length;i++){
+                                    if(i!=0){
+                                        txt +=`
+                                            <div class="carousel-item">
+                                                <div class="mask flex-center">
+                                                    <div class="container">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-md-7 col-12 order-md-1 order-2">
+                                                        <h4>Unit Type: ${computers[i].unit} </h4>
+                                                        <h4> ${computers[i].type}</h3>
+                                                        <p>Model: ${computers[i].model}.</p>
+                                                        <p>Price: ${computers[i].price}.</p>
+                                                        <p>Specification: </p>
+                                                        <ul>`;
+                                                            for(j = 0; j < computers[i].specs.length; j++){
+                                                            txt += `
+                                                            <p><b>&nbsp;&nbsp;&nbsp;&nbsp;•</b>${computers[i].specs[j]}</p></h4>
+                                                            `;
+                                                            }
+                                                        txt +=`
+                                                        </ul>
+                                                        </div>
+                                                        <div class="col-md-5 col-12 order-md-2 order-1 align-self-start"><img src="asset/img/${computers[i].img}" class="mx-auto" alt="slide"></div>
+                                                    </div>
+                                                    </div>
+                                                
+                                                </div>
+                                                </div>
+
+                                            `;
+                                            }else{
+                                                txt +=`
+                                                <div class="carousel-item active">
+                                                <div class="mask flex-center">
+                                                    <div class="container">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-md-7 col-12 order-md-1 order-2">
+                                                        <h4>Unit Type:${computers[i].unit} </h4>
+                                                        <h4>    ${computers[i].type}</h4>
+                                                        <p>Model: ${computers[i].model}.</p>
+                                                        <p>Price: ${computers[i].price}.</p>
+                                                        <p>Specification: </p>
+                                                        <ul>`;
+                                                            for(j = 0; j < computers[i].specs.length; j++){
+                                                            txt += `
+                                                                <p><b>&nbsp;&nbsp;&nbsp;&nbsp;• </b>${computers[i].specs[j]}</p>
+                                                            `;
+                                                            }
+                                                        txt +=`
+                                                        </ul>
+                                                        </div>
+                                                        <div class="col-md-5 col-12 order-md-2 order-1 align-self-center "><img src="asset/img/${computers[i].img}" class="mx-auto" alt="slide"></div>
+                                                    </div>
+                                                    </div>
+                                                
+                                                </div>
+                                            </div>
+
+                                        `;
+                                                }
+                                }
+                                
+                                document.getElementById("demo").innerHTML = txt;
+                            }
+                        }
+                        xmlhttp.open("GET", "http://json-php.test/computer-json.php");
+                        xmlhttp.send();
+                    
+                        
+                    </script>
+                    
+                    
+                </div>
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> 
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span> 
+                    <span class="sr-only">Previous</span> </a> 
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> 
+                    <span class="carousel-control-next-icon" aria-hidden="true">
+                    </span> <span class="sr-only">Next</span> 
+                </a> 
+            </div>
+            <!--slide end--> 
+        </section>
+            <!-- Content Row-->
+            <!-- <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body"> -->
+                            <!-- <h2 class="card-title">Card One</h2> -->
+                            <!-- <div id="myID"><img class="img-fluid rounded mb-4 mb-lg-0" src="comset/laptop1/1.jpg" alt="..." /></div>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                        </div> -->
+                        <!-- <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div> -->
+                        <!-- <div class="card-footer"><a type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">More Info</a></div> -->
+                    <!-- </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card Two</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card Three</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Footer-->
+        <!-- About-->
+        <section class="page-section text-center" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About Us</h2>
+                    <h3 class="section-subheading text-muted">Team</h3>
+                </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>May 05, 2023</h4>
+                            <h4 class="subheading">Our Humble Beginnings</h4>
+                        </div>
+                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>May 06, 2023</h4>
+                            <h4 class="subheading">Our Deperate Beginnings</h4>
+                        </div>
+                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Team-->
+        <section class="page-section bg-light text-center" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Amazing Me</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle col-lg-7" src="comset/team.jpg" alt="..." />
+                            <h4>John Paul R. Espinosa</h4>
+                            <p class="text-muted">Mag Mama Programmer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">I'm Handsome and i know it! hehe.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-5 bg-dark">
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
